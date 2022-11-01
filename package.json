@@ -10,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/SLuo490/Confessions.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Shi Tao + Daniel Zheng",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SLuo490/Confessions/issues"
   },
-  "homepage": "https://github.com/SLuo490/Confessions#readme"
+  "homepage": "https://github.com/SLuo490/Confessions#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.25.3"
+  }
 }
