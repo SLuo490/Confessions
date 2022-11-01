@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SLuo490/Confessions/issues"
   },
-  "homepage": "https://github.com/SLuo490/Confessions#readme"
+  "homepage": "https://github.com/SLuo490/Confessions#readme",
+  "dependencies": {
+    "sequelize": "^6.25.3"
+  }
 }
