@@ -1,0 +1,19 @@
+{
+  "name": "confessions",
+  "version": "1.0.0",
+  "description": "An application for people to post their confessions anonymously",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SLuo490/Confessions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SLuo490/Confessions/issues"
+  },
+  "homepage": "https://github.com/SLuo490/Confessions#readme"
+}
