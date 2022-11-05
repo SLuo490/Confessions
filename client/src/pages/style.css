@@ -1,5 +1,5 @@
 * {
-  font-family: ;
+  font-family: 'Chivo', sans-serif;
 }
 
 :root {
@@ -8,6 +8,4 @@
   --powder-blue: #a8dadc;
   --celadon-blue: #457b9d;
   --prussian-blue: #1d3557;
-
-  font-family: 'Chivo', sans-serif;
 }
