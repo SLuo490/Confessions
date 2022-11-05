@@ -1,7 +1,9 @@
+import './style.css';
+
 export default function LoginPage() {
   return (
     <div className='LoginPage'>
-      <div>Login Page</div>
+      <div className='container bg-white text-dark'></div>
     </div>
   );
 }
