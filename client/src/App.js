@@ -1,9 +1,31 @@
-import LoginPage from './pages/LoginPage';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  AboutUsPage,
+  CreatePostPage,
+  EditPostPage,
+  HomePage,
+  LoginPage,
+  RegisterPage,
+} from './pages/index';
+
 import './App.css';
 
 function App() {
-  return <Router></Router>;
+  return (
+    <Router>
+      <div className='App'>
+        {/* Nav bar goes here */}
+        <Routes>
+          <Route exact path='/' element={<HomePage />} />
+          <Route exact path='/about' element={<AboutUsPage />} />
+          <Route exact path='/login' element={<LoginPage />} />
+          <Route exact path='/register' element={<RegisterPage />} />
+          <Route exact path='/create' element={<CreatePostPage />} />
+          <Route exact path='/edit/:id' element={<EditPostPage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
