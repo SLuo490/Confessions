@@ -1,5 +1,6 @@
 import './style.css';
 import { Link } from 'react-router-dom';
+import Form from '../components/Form';
 
 export default function LoginPage() {
   return (
@@ -19,6 +20,7 @@ export default function LoginPage() {
             </Link>
           </h6>
         </div>
+        <Form />
       </div>
     </div>
   );
