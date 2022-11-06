@@ -1,11 +1,16 @@
-* {
-  font-family: 'Chivo', sans-serif;
-}
-
 :root {
   --imperial-red: #e63946;
   --honey-dew: #f1faee;
   --powder-blue: #a8dadc;
   --celadon-blue: #457b9d;
   --prussian-blue: #1d3557;
+}
+
+* {
+  font-family: 'Chivo', sans-serif;
+  background-color: var(--honey-dew);
+}
+
+.formSize {
+  height: 800px;
 }
