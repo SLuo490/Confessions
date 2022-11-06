@@ -26,3 +26,27 @@ body {
 .formSize {
   height: 794px;
 }
+
+.radius {
+  border-radius: 15px;
+}
+
+.color-imperial-red {
+  color: var(--imperial-red);
+}
+
+.color-celadon-blue {
+  color: var(--celadon-blue);
+}
+
+.color-prussian-blue {
+  color: var(--prussian-blue);
+}
+
+.color-powder-blue {
+  color: var(--powder-blue);
+}
+
+.color-honey-dew {
+  color: var(--honey-dew);
+}
