@@ -50,3 +50,8 @@ body {
 .color-honey-dew {
   color: var(--honey-dew);
 }
+
+.input-center {
+  display: block;
+  margin: auto;
+}
