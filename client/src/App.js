@@ -17,11 +17,11 @@ function App() {
         {/* Nav bar goes here */}
         <Routes>
           <Route exact path='/' element={<HomePage />} />
-          <Route exact path='/about' element={<AboutUsPage />} />
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/create' element={<CreatePostPage />} />
           <Route exact path='/edit/:id' element={<EditPostPage />} />
+          <Route exact path='/about' element={<AboutUsPage />} />
         </Routes>
       </div>
     </Router>
