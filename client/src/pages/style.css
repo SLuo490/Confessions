@@ -8,9 +8,21 @@
 
 * {
   font-family: 'Chivo', sans-serif;
+}
+
+html,
+body {
   background-color: var(--honey-dew);
+  height: 100vh;
+}
+
+.center {
+  height: 100vh; /* Magic here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .formSize {
-  height: 800px;
+  height: 794px;
 }

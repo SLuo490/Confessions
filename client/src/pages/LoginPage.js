@@ -2,9 +2,9 @@ import './style.css';
 
 export default function LoginPage() {
   return (
-    <div className='LoginPage'>
-      <div className='container-lg d-flex justify-content-center bg-white text-dark formMargin formSize'>
-        Hello
+    <div className='center'>
+      <div className='container bg-white formSize'>
+        <h1>Login Page</h1>
       </div>
     </div>
   );
