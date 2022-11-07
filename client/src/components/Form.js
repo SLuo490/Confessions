@@ -22,26 +22,3 @@ export default function Form() {
     </div>
   );
 }
-
-/*
-    <div className='form-group'>
-      <div className='w-50'>
-        <label htmlFor='email'></label>
-        <input
-          type='email'
-          className='form-control form-control-lg'
-          id='email'
-          placeholder='Email Address'
-        />
-      </div>
-      <div className='w-50'>
-        <label htmlFor='password'></label>
-        <input
-          type='password'
-          className='form-control form-control-lg'
-          id='password'
-          placeholder='Password'
-        />
-      </div>
-    </div>
-*/
