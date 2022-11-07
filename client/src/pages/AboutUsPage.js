@@ -1,5 +1,11 @@
 import './style.css';
+import Nav from '../components/Nav';
 
 export default function AboutUsPage() {
-  return <div className='AboutUsPage'>About Us Page</div>;
+  return (
+    <div className='AboutUsPage'>
+      <Nav />
+      About Us Page
+    </div>
+  );
 }
