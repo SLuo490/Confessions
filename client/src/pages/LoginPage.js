@@ -7,7 +7,7 @@ export default function LoginPage() {
     <div className='LoginPage'>
       <Nav />
       <div className='center'>
-        <div className='container bg-white formSize radius'>
+        <div className='container bg-white w-75 h-75 radius'>
           <h1 className='d-flex justify-content-center align-items-center mt-5'>
             Sign In
           </h1>
