@@ -1,6 +1,6 @@
-import './style.css';
 import { Link } from 'react-router-dom';
-import { Form } from '../components/index';
+import { Form } from '../../components';
+import '../style.css';
 
 export default function LoginPage() {
   return (

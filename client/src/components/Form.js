@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../pages/style.css';
 
 export default function Form() {
   return (
@@ -32,7 +33,7 @@ export default function Form() {
       <Link to='/register'>
         <button
           type='button'
-          className='btn btn-brand btn-primary w-75 input-center mt-4 py-2'
+          className='btn btn-primary w-75 input-center mt-4 py-2'
         >
           Register
         </button>
