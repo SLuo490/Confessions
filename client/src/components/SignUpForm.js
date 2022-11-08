@@ -1,27 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import '../pages/style.css';
 
-export default function Form() {
-  const [username, setUsername] = useState('');
-
-  const handleChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const generateRandomCharacterUsername = () => {
-    const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.';
-    let randomUsername = '';
-    let randomNum = Math.floor(Math.random() * 10) + 6;
-    for (let i = 0; i < randomNum; i++) {
-      randomUsername += characters.charAt(
-        Math.floor(Math.random() * characters.length)
-      );
-    }
-    setUsername(randomUsername);
-  };
-
+export default function Form({ username, handleChange, onClick }) {
   return (
     <div className='form-group'>
       <div className='username d-flex justify-content-center'>
@@ -40,7 +20,7 @@ export default function Form() {
           className='button py-3 text-black btn-hover bg-color-celadon-blue text-white transition w-25 border-0'
           id='button'
           value='Generate Username'
-          onClick={generateRandomCharacterUsername}
+          onClick={onClick}
         />
       </div>
 
