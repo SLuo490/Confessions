@@ -1,12 +1,10 @@
 import './style.css';
-import Nav from '../components/Nav';
 
 export default function RegisterPage() {
   return (
     <div className='RegisterPage'>
-      <Nav />
       <div className='center'>
-        <div className='container bg-white formSize'>
+        <div className='container bg-white w-75 h-75 formSize'>
           <h1>Register Page</h1>
         </div>
       </div>
