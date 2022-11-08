@@ -16,7 +16,7 @@ body {
 }
 
 .center {
-  height: 90vh; /* Magic here */
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
