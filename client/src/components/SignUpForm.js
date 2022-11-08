@@ -11,7 +11,7 @@ export default function Form() {
 
   const generateRandomCharacterUsername = () => {
     const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.';
     let randomUsername = '';
     let randomNum = Math.floor(Math.random() * 10) + 6;
     for (let i = 0; i < randomNum; i++) {
