@@ -4,6 +4,7 @@ import CreatePostPage from './CreatePostPage';
 import EditPostPage from './EditPostPage';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+import LandingPage from './LandingPage';
 
 export {
   AboutUsPage,
@@ -12,4 +13,5 @@ export {
   EditPostPage,
   LoginPage,
   RegisterPage,
+  LandingPage,
 };
