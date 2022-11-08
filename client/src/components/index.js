@@ -1,4 +1,5 @@
-import Form from './Form';
+import LoginForm from './LoginForm';
+import SignUpForm from './SignUpForm';
 import Nav from './Nav';
 
-export { Form, Nav };
+export { LoginForm, SignUpForm, Nav };
