@@ -2,8 +2,8 @@ import AboutUsPage from './AboutUsPage';
 import HomePage from './HomePage';
 import CreatePostPage from './CreatePostPage';
 import EditPostPage from './EditPostPage';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
+import LoginPage from './auth/LoginPage';
+import RegisterPage from './auth/RegisterPage';
 import LandingPage from './LandingPage';
 
 export {

@@ -1,12 +1,12 @@
-import './style.css';
 import { Link } from 'react-router-dom';
-import { Form } from '../components/index';
+import { Form } from '../../components';
+import '../style.css';
 
 export default function LoginPage() {
   return (
     <div className='LoginPage'>
       <div className='center'>
-        <div className='container bg-white w-75 h-75 radius'>
+        <div className='container bg-white w-50 h-75 radius'>
           <h1 className='d-flex justify-content-center align-items-center mt-5'>
             Sign In
           </h1>

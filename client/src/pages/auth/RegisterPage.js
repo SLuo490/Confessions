@@ -1,4 +1,5 @@
-import './style.css';
+import '../style.css';
+import { Form } from '../../components';
 
 export default function RegisterPage() {
   return (
@@ -6,6 +7,7 @@ export default function RegisterPage() {
       <div className='center'>
         <div className='container bg-white w-75 h-75 formSize'>
           <h1>Register Page</h1>
+          <Form />
         </div>
       </div>
     </div>
