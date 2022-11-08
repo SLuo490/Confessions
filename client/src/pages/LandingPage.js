@@ -1,3 +1,10 @@
+import { Nav } from '../components';
+
 export default function LandingPage() {
-  return <div className='landingPage'>landing page</div>;
+  return (
+    <div className='landingPage'>
+      <Nav />
+      landing page
+    </div>
+  );
 }

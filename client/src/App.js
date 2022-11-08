@@ -17,8 +17,8 @@ function App() {
       <div className='App'>
         {/* Nav bar goes here */}
         <Routes>
-          <Route exact path='/Landing' element={<LandingPage />} />
-          <Route exact path='/' element={<HomePage />} />
+          <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/Home' element={<HomePage />} />
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/create' element={<CreatePostPage />} />
