@@ -40,7 +40,7 @@ export default function Form() {
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          user.displayName = username;
         })
         .catch((error) => {
           const errorCode = error.code;
