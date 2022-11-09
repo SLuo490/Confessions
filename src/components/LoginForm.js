@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
@@ -7,6 +7,7 @@ import '../pages/style.css';
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -21,14 +22,13 @@ export default function Form() {
       await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+          navigate('/home');
           console.log(user);
-          alert("You're logged in!");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
-          alert('Invalid email or password');
         });
     } catch (error) {
       console.log(error);
@@ -57,15 +57,13 @@ export default function Form() {
           onChange={handleChangePassword}
         />
       </div>
-      <Link to='/home'>
-        <button
-          type='button'
-          className='btn btn-primary w-75 input-center mt-4 py-2'
-          onClick={handleSignIn}
-        >
-          Log in
-        </button>
-      </Link>
+      <button
+        type='button'
+        className='btn btn-primary w-75 input-center mt-4 py-2'
+        onClick={handleSignIn}
+      >
+        Log in
+      </button>
       <Link to='/register'>
         <button
           type='button'
