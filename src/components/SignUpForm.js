@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { auth } from '../utils/firebase';
 import '../pages/style.css';
 
 export default function Form() {
