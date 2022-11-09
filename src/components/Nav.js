@@ -5,13 +5,13 @@ import { logOut } from '../utils/firebase';
 import '../pages/style.css';
 
 export default function Nav() {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   return (
     <nav className='nav-bar bg-white py-2'>
       <div className='container-fluid'>
         <div className='d-flex justify-content-between align-items-center'>
-          <Link to='/'>
+          <Link to='/home'>
             <button
               type='button'
               className='btn navbar-brand color-celadon-blue'
