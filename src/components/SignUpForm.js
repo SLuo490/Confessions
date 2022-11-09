@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { auth } from '../utils/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import '../pages/style.css';
 
 export default function Form() {
@@ -40,13 +40,25 @@ export default function Form() {
       await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          user.displayName = username;
+          updateUserName();
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
         });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // update user's username
+  const updateUserName = async () => {
+    try {
+      await updateProfile(auth.currentUser, {
+        displayName: username,
+      });
     } catch (error) {
       console.log(error);
     }
