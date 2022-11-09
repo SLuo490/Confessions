@@ -1,13 +1,24 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { auth } from '../utils/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import '../pages/style.css';
 
 export default function Form() {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = (e) => {
     setUsername(e.target.value);
+  };
+
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   const generateRandomCharacterUsername = () => {
@@ -22,6 +33,25 @@ export default function Form() {
     }
     setUsername(randomUsername);
   };
+
+  // create user with email and password
+  const handleSignUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className='form-group'>
       <div className='username d-flex justify-content-center'>
@@ -51,6 +81,7 @@ export default function Form() {
           className='form-control form-control-lg py-3'
           id='email'
           placeholder='Email Address'
+          onChange={handleChangeEmail}
         />
       </div>
       <div className='w-75 input-center'>
@@ -60,12 +91,14 @@ export default function Form() {
           className='form-control form-control-lg py-3'
           id='password'
           placeholder='Password'
+          onChange={handleChangePassword}
         />
       </div>
       <Link to='/home'>
         <button
           type='button'
           className='btn btn-primary w-75 input-center mt-4 py-2'
+          onClick={handleSignUp}
         >
           Register
         </button>
