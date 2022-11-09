@@ -1,6 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { registerWithEmailAndPassword, auth } from '../utils/firebase';
+import { registerWithEmailAndPassword } from '../utils/firebase';
 import '../pages/style.css';
 
 export default function Form() {
