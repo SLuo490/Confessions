@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { registerWithEmailAndPassword } from '../utils/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../utils/firebase';
+import { ErrorAlert } from './index';
+import { collection, addDoc } from 'firebase/firestore';
 import '../pages/style.css';
 
 export default function Form() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const generateRandomCharacterUsername = () => {
@@ -23,19 +27,43 @@ export default function Form() {
   };
 
   const register = () => {
+    // if there is no username or password display error
     if (!username) {
-      return alert('Please enter a username');
-    } else if (!email) {
-      return alert('Please enter an email');
+      setError('Please enter a username');
     } else if (!password) {
-      return alert('Please enter a password');
+      setError('Please enter a password');
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+          const user = res.user;
+          addDoc(collection(db, 'users'), {
+            uid: user.uid,
+            name: username,
+            email,
+          });
+          navigate('/home');
+        })
+        .catch((err) => {
+          switch (err.code) {
+            case 'auth/email-already-in-use':
+              setError('This email is already in use');
+              break;
+            case 'auth/invalid-email':
+              setError('Please enter a valid email');
+              break;
+            case 'auth/weak-password':
+              setError('Password must be at least 6 characters');
+              break;
+            default:
+              setError('An error occurred');
+          }
+        });
     }
-    registerWithEmailAndPassword(username, email, password);
-    navigate('/login');
   };
 
   return (
     <div className='form-group'>
+      {error && <ErrorAlert details={error} />}
       <div className='username d-flex justify-content-center'>
         <label htmlFor='text'></label>
         <input

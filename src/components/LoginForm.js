@@ -1,18 +1,37 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, logInWithEmailAndPassword } from '../utils/firebase';
+import { auth } from '../utils/firebase';
 import { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { ErrorAlert } from './index';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../pages/style.css';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, loading] = useAuthState(auth);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const loginIn = () => {
-    logInWithEmailAndPassword(email, password);
-    navigate('/home');
+  const handleLogin = () => {
+    signInWithEmailAndPassword(auth, email, password).catch((err) => {
+      switch (err.code) {
+        case 'auth/invalid-email':
+          setError('Please enter a valid email');
+          break;
+        case 'auth/user-disabled':
+          setError('This account has been disabled');
+          break;
+        case 'auth/user-not-found':
+          setError('This account does not exist');
+          break;
+        case 'auth/wrong-password':
+          setError('Incorrect password');
+          break;
+        default:
+          setError('An error occurred');
+      }
+    });
   };
 
   useEffect(() => {
@@ -21,7 +40,8 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <form className='form-group validate-form' noValidate>
+    <form className='form-group'>
+      {error && <ErrorAlert details={error} />}
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
         <input
@@ -32,7 +52,6 @@ export default function Form() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <div class='valid-feedback'>Looks good!</div>
       </div>
       <div className='w-75 input-center'>
         <label htmlFor='password'></label>
@@ -44,12 +63,11 @@ export default function Form() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <div class='valid-feedback'>Looks good!</div>
       </div>
       <button
         type='button'
         className='btn btn-primary w-75 input-center mt-4 py-2'
-        onClick={loginIn}
+        onClick={handleLogin}
       >
         Log in
       </button>
