@@ -31,7 +31,7 @@ export default function Form() {
       return alert('Please enter a password');
     }
     registerWithEmailAndPassword(username, email, password);
-    navigate('/home');
+    navigate('/login');
   };
 
   return (

@@ -21,7 +21,7 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <div className='form-group'>
+    <form className='form-group validate-form' noValidate>
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
         <input
@@ -30,7 +30,9 @@ export default function Form() {
           id='email'
           placeholder='Email Address'
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
+        <div class='valid-feedback'>Looks good!</div>
       </div>
       <div className='w-75 input-center'>
         <label htmlFor='password'></label>
@@ -40,7 +42,9 @@ export default function Form() {
           id='password'
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
+        <div class='valid-feedback'>Looks good!</div>
       </div>
       <button
         type='button'
@@ -57,6 +61,6 @@ export default function Form() {
           Register
         </button>
       </Link>
-    </div>
+    </form>
   );
 }
