@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../utils/firebase';
 import { ErrorAlert } from './index';
 import { collection, addDoc } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import '../pages/style.css';
 
 export default function Form() {
@@ -11,6 +12,7 @@ export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   const generateRandomCharacterUsername = () => {
@@ -60,6 +62,11 @@ export default function Form() {
         });
     }
   };
+
+  useEffect(() => {
+    if (loading) return;
+    if (user) navigate('/home');
+  }, [user, loading, navigate]);
 
   return (
     <div className='form-group'>
