@@ -32,6 +32,8 @@ export default function Form() {
     // if there is no username or password display error
     if (!username) {
       setError('Please enter a username');
+    } else if (!email) {
+      setError('Please enter an email');
     } else if (!password) {
       setError('Please enter a password');
     } else {
