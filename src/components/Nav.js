@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../utils/firebase';
 import { logOut } from '../utils/firebase';
@@ -6,6 +6,7 @@ import '../pages/style.css';
 
 export default function Nav() {
   const [user] = useAuthState(auth);
+  const location = useLocation();
 
   return (
     <nav className='nav-bar bg-white py-2'>
@@ -21,16 +22,19 @@ export default function Nav() {
           </Link>
           {!user ? (
             <div className='auth'>
-              <Link to='/login' className='px-2'>
-                <button type='button' className='btn btn-outline-success'>
-                  Login
-                </button>
-              </Link>
-              <Link to='/register'>
-                <button type='button' className='btn btn-outline-primary'>
-                  Sign Up
-                </button>
-              </Link>
+              {location.pathname === '/login' ? (
+                <Link to='/register'>
+                  <button type='button' className='btn btn-outline-primary'>
+                    Sign Up
+                  </button>
+                </Link>
+              ) : (
+                <Link to='/login' className='px-2'>
+                  <button type='button' className='btn btn-outline-success'>
+                    Login
+                  </button>
+                </Link>
+              )}
             </div>
           ) : (
             <div>
