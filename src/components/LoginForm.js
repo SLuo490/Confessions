@@ -40,7 +40,7 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <form className='form-group'>
+    <form className='form-group mt-3'>
       {error && <ErrorAlert details={error} />}
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
@@ -71,14 +71,6 @@ export default function Form() {
       >
         Log in
       </button>
-      <Link to='/register'>
-        <button
-          type='button'
-          className='btn btn-primary w-75 input-center mt-4 py-2'
-        >
-          Register
-        </button>
-      </Link>
     </form>
   );
 }
