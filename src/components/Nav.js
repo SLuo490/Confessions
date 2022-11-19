@@ -38,18 +38,43 @@ export default function Nav() {
             </div>
           ) : (
             <div>
-              <Link to='/create'>
-                <button type='button' className='btn btn-outline-primary me-3'>
-                  Create
-                </button>
-              </Link>
-              <button
-                type='button'
-                className='btn btn-outline-danger'
-                onClick={logOut}
-              >
-                Log Out
-              </button>
+              {location.pathname === '/create' ? (
+                <div>
+                  <Link to='/home'>
+                    <button
+                      type='button'
+                      className='btn btn-outline-primary me-3'
+                    >
+                      Back
+                    </button>
+                  </Link>
+                  <button
+                    type='button'
+                    className='btn btn-outline-danger'
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <Link to='/create'>
+                    <button
+                      type='button'
+                      className='btn btn-outline-primary me-3'
+                    >
+                      Create
+                    </button>
+                  </Link>
+                  <button
+                    type='button'
+                    className='btn btn-outline-danger'
+                    onClick={logOut}
+                  >
+                    Log Out
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
