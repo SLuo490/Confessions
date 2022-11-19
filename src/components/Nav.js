@@ -11,7 +11,7 @@ export default function Nav() {
     <nav className='nav-bar bg-white py-2'>
       <div className='container-fluid'>
         <div className='d-flex justify-content-between align-items-center'>
-          <Link to='/home'>
+          <Link to='/'>
             <button
               type='button'
               className='btn navbar-brand color-celadon-blue'

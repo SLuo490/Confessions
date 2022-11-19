@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { LoginForm } from '../../components';
+import { Nav } from '../../components';
 import '../style.css';
 
 export default function LoginPage() {
   return (
     <div className='LoginPage'>
+      <Nav />
       <div className='center'>
         <div className='container bg-white w-50 h-75 radius'>
           <h1 className='d-flex justify-content-center align-items-center mt-5'>
