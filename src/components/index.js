@@ -1,6 +1,6 @@
 import LoginForm from './LoginForm';
-import SignUpForm from './SignUpForm';
+import RegisterForm from './RegisterForm';
 import Nav from './Nav';
 import ErrorAlert from './ErrorAlert';
 
-export { LoginForm, SignUpForm, Nav, ErrorAlert };
+export { LoginForm, RegisterForm, Nav, ErrorAlert };

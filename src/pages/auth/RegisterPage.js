@@ -1,5 +1,5 @@
 import '../style.css';
-import { SignUpForm } from '../../components';
+import { RegisterForm } from '../../components';
 
 export default function RegisterPage() {
   return (
@@ -9,7 +9,7 @@ export default function RegisterPage() {
           <h1 className='d-flex justify-content-center align-items-center mt-5 pb-3'>
             Sign Up
           </h1>
-          <SignUpForm />
+          <RegisterForm />
         </div>
       </div>
     </div>
