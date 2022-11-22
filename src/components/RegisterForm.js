@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../utils/firebase';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { auth, db, collection, addDoc } from '../utils/firebase';
 import { ErrorAlert } from './index';
-import { collection, addDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import '../pages/style.css';
 
@@ -19,8 +18,7 @@ export default function Form() {
     const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.';
     let randomUsername = '';
-    let randomNum = Math.floor(Math.random() * 10) + 6;
-    for (let i = 0; i < randomNum; i++) {
+    for (let i = 0; i < 6; i++) {
       randomUsername += characters.charAt(
         Math.floor(Math.random() * characters.length)
       );
@@ -37,15 +35,20 @@ export default function Form() {
     } else if (!password) {
       setError('Please enter a password');
     } else {
+      // if there is a username and password, create user
       createUserWithEmailAndPassword(auth, email, password)
-        .then((res) => {
-          const user = res.user;
-          addDoc(collection(db, 'users'), {
-            uid: user.uid,
-            name: username,
-            email,
+        .then((userCredential) => {
+          // update the username
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: username,
           });
-          navigate('/home');
+          // add user to firestore
+          addDoc(collection(db, 'users'), {
+            username: username,
+            email: email,
+            uid: user.uid,
+          });
         })
         .catch((err) => {
           switch (err.code) {
