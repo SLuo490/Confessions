@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect } from 'react';
+import { PostForm } from '../components';
+
 
 export default function CreatePostPage() {
   const navigate = useNavigate();
@@ -21,7 +23,14 @@ export default function CreatePostPage() {
   return (
     <div className='CreatePostPage'>
       <Nav />
-      Create Post
+      <div className='center'>
+        <div className='container bg-white w-50 h-75 radius'>
+          <h1 className='d-flex justify-content-center align-items-center mt-5 pb-3'>
+            Create Post
+          </h1>
+          <PostForm />
+        </div>
+      </div>
     </div>
   );
 }

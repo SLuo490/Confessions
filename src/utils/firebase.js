@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -21,4 +21,4 @@ const logOut = () => {
   signOut(auth);
 };
 
-export { auth, db, logOut };
+export { auth, db, logOut, collection, addDoc };

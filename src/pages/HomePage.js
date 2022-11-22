@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 export default function HomePage() {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-
   // if user not logged in, redirect to login page
   useEffect(() => {
     const getData = async () => {
@@ -21,7 +20,7 @@ export default function HomePage() {
   return (
     <div className='HomePage'>
       <Nav />
-      <div className='container w-50 bg-white'>Home</div>
+      <div className='container w-50 bg-white'>Hello</div>
     </div>
   );
 }
