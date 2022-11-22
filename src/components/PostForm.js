@@ -6,13 +6,13 @@ import { ErrorAlert } from './index';
 
 export default function PostForm() {
   // state
-  const [post, setPost] = useState({ description: '', title: '' });
+  const [post, setPost] = useState({ title: '', description: '' });
 
   return (
     <div className='PostForm'>
+      {/* {error && <ErrorAlert details={error} />} */}
       <form>
-        {/* {error && <ErrorAlert details={error} />} */}
-        <div className='form-group mx-4 mt-4'>
+        <div className='form-group mx-4 mt-2'>
           <input
             type='text'
             className='form-control mb-3'
@@ -36,7 +36,7 @@ export default function PostForm() {
         </div>
         <button
           type='submit'
-          className='btn btn-primary mt-2 mx-4 float-end w-25 py-2'
+          className='btn btn-primary mx-4 float-end w-25 py-2'
           // onSubmit={handleSubmit}
         >
           Post

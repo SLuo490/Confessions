@@ -41,7 +41,6 @@ export default function Form() {
 
   return (
     <form className='form-group mt-3'>
-      {error && <ErrorAlert details={error} />}
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
         <input
@@ -71,6 +70,7 @@ export default function Form() {
       >
         Log in
       </button>
+      {error && <ErrorAlert details={error} />}
     </form>
   );
 }
