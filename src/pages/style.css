@@ -15,21 +15,6 @@ body {
   background-color: var(--honey-dew);
 }
 
-.center {
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.formSize {
-  height: 794px;
-}
-
-.radius {
-  border-radius: 15px;
-}
-
 .color-imperial-red {
   color: var(--imperial-red);
 }
@@ -58,8 +43,22 @@ body {
   background-color: var(--powder-blue);
 }
 
-.transition {
-  transition: all 0.5s ease-in-out;
+/* Login + Sign In */
+.background-style {
+  height: 95vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-style {
+  background-color: white;
+  width: 900px;
+  height: 650px;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 
 .input-center {

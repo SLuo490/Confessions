@@ -40,8 +40,8 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <form className='form-group mt-3'>
-      {error && <ErrorAlert details={error} />}
+    <form className='form-group mt-2'>
+      <div className='mt-4'>{error && <ErrorAlert details={error} />}</div>
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
         <input

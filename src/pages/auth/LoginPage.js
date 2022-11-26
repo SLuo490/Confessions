@@ -7,23 +7,20 @@ export default function LoginPage() {
   return (
     <div className='LoginPage'>
       <Nav />
-      <div className='center'>
-        <div className='container bg-white w-50 h-75 radius'>
-          <h1 className='d-flex justify-content-center align-items-center mt-5'>
-            Sign In
-          </h1>
-          <div className='create d-flex justify-content-center align-items-center mt-4'>
-            <h6 className='pe-3 color-celadon-blue'>New to Confessions?</h6>
-            <h6>
-              <Link
-                className='color-imperial-red text-decoration-none'
-                to='/register'
-              >
-                Create an account here
-              </Link>
-            </h6>
+      <div className='container-fluid background-style'>
+        <div className='row form-style'>
+          <div className='col'>
+            <div className='login-form'>
+              <h1 className='text-center mt-5'>Login</h1>
+              <p className='text-center mt-3'>
+                Don't have an account?{' '}
+                <Link to='/register' className='text-decoration-none'>
+                  <span className='color-imperial-red'>Sign Up</span>
+                </Link>
+              </p>
+              <LoginForm />
+            </div>
           </div>
-          <LoginForm />
         </div>
       </div>
     </div>
