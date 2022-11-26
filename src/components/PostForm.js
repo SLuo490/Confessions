@@ -20,7 +20,7 @@ export default function PostForm() {
     <div className='PostForm'>
       {error && <ErrorAlert details={error} />}
       <form>
-        <div className='form-group mx-4 mt-2'>
+        <div className='form-group mx-4 mt-4'>
           <input
             type='text'
             className='form-control mb-3'
