@@ -77,6 +77,7 @@ export default function Form() {
       >
         Log in
       </button>
+      {error && <ErrorAlert details={error} />}
     </form>
   );
 }

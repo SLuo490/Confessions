@@ -65,3 +65,8 @@ body {
   display: block;
   margin: auto;
 }
+
+/* Post Form */
+textarea {
+  resize: none;
+}

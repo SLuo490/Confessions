@@ -8,12 +8,14 @@ import { useEffect } from 'react';
 export default function HomePage() {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-  // if user not logged in, redirect to login page
+
   useEffect(() => {
+    // if user not logged in, redirect to login page
     const getData = async () => {
       if (loading) return;
       if (!user) return navigate('/login');
     };
+
     getData();
   }, [user, loading, navigate]);
 
