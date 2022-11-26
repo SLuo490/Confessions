@@ -74,8 +74,9 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <div className='form-group'>
-      <div className='username d-flex justify-content-center'>
+    <form className='form-group'>
+      {error && <ErrorAlert details={error} />}
+      <div className='username d-flex justify-content-center mt-5'>
         <label htmlFor='text'></label>
         <input
           type='text'
@@ -122,7 +123,6 @@ export default function Form() {
       >
         Register
       </button>
-      {error && <ErrorAlert details={error} />}
-    </div>
+    </form>
   );
 }

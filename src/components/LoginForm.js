@@ -16,6 +16,12 @@ export default function Form() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password).catch((err) => {
       switch (err.code) {
+        case !email:
+          setError('Please enter an email');
+          break;
+        case !password:
+          setError('Please enter a password');
+          break;
         case 'auth/invalid-email':
           setError('Please enter a valid email');
           break;
@@ -40,7 +46,8 @@ export default function Form() {
   }, [user, loading, navigate]);
 
   return (
-    <form className='form-group mt-3'>
+    <form className='form-group mt-2'>
+      <div className='mt-4'>{error && <ErrorAlert details={error} />}</div>
       <div className='w-75 input-center'>
         <label htmlFor='email'></label>
         <input
