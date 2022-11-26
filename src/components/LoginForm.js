@@ -16,6 +16,12 @@ export default function Form() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password).catch((err) => {
       switch (err.code) {
+        case !email:
+          setError('Please enter an email');
+          break;
+        case !password:
+          setError('Please enter a password');
+          break;
         case 'auth/invalid-email':
           setError('Please enter a valid email');
           break;
