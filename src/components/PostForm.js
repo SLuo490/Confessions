@@ -5,12 +5,12 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ErrorAlert } from './index';
 
 export default function PostForm() {
-  // state
   const [post, setPost] = useState({ title: '', description: '' });
+  const [error, setError] = useState('');
 
   return (
     <div className='PostForm'>
-      {/* {error && <ErrorAlert details={error} />} */}
+      {error && <ErrorAlert details={error} />}
       <form>
         <div className='form-group mx-4 mt-2'>
           <input
