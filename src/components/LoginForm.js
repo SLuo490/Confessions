@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../utils/firebase';
 import { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -40,6 +40,12 @@ export default function Form() {
     });
   };
 
+  const handleCancel = () => {
+    setEmail('');
+    setPassword('');
+    navigate('/');
+  };
+
   useEffect(() => {
     if (loading) return;
     if (user) navigate('/home');
@@ -72,12 +78,16 @@ export default function Form() {
       </div>
       <button
         type='button'
-        className='btn btn-primary w-75 input-center mt-4 py-2'
+        className='btn btn-primary w-75 input-center mt-4 py-3'
         onClick={handleLogin}
       >
-        Log in
+        <span className='h5'>Login</span>
       </button>
-      {error && <ErrorAlert details={error} />}
+      <p className='text-center mt-4'>
+        <Link to='/register' className='decoration-thickness text-black'>
+          <span className='h5'>Cancel</span>
+        </Link>
+      </p>
     </form>
   );
 }

@@ -51,7 +51,7 @@ export default function PostForm() {
         </button>
         <button
           type='submit'
-          className='btn btn-secondary mx-4 w-25 py-2'
+          className='btn btn-secondary w-25 py-2'
           onClick={handleCancel}
         >
           Cancel
