@@ -61,6 +61,7 @@ body {
   margin: 0 auto;
 }
 
+/* Forms */
 .input-center {
   display: block;
   margin: auto;
@@ -69,4 +70,11 @@ body {
 /* Post Form */
 textarea {
   resize: none;
+}
+
+/* Decorations */
+.decoration-thickness {
+  text-decoration-line: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--imperial-red);
 }

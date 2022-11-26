@@ -22,12 +22,14 @@ export default function CreatePostPage() {
   return (
     <div className='CreatePostPage'>
       <Nav />
-      <div className='center'>
-        <div className='container bg-white w-50 h-75 radius'>
-          <h2 className='d-flex justify-content-center align-items-center mt-5 pb-3'>
-            Create a new post
-          </h2>
-          <PostForm />
+      <div className='container-fluid background-style'>
+        <div className='row form-style'>
+          <div className='col'>
+            <div className='login-form'>
+              <h1 className='text-center mt-5'>Create a new post</h1>
+              <PostForm />
+            </div>
+          </div>
         </div>
       </div>
     </div>
