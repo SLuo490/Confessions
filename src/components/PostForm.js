@@ -20,20 +20,28 @@ export default function PostForm() {
   // if user clicks submit button, add post to firestore
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const docRef = await addDoc(collection(db, 'posts'), {
-        ...post,
-        createdAt: new Date(),
-        user: user.uid,
-        username: user.displayName,
-      });
-      console.log('Document written with ID: ', docRef.id);
-      setPost({ title: '', description: '' });
-      navigate('/home');
-    } catch (err) {
-      setError(err.message);
-      console.error('Error adding document: ', err);
+
+    // checks for empty fields
+    if (!post.title || !post.description) {
+      setError('Please fill out all fields');
+      return;
     }
+
+    // check if description is too long
+    if (post.description.length > 600) {
+      setError('Description must be less than 600 characters');
+      return;
+    }
+
+    // add post to firestore
+    const docRef = await addDoc(collection(db, 'posts'), {
+      ...post,
+      createdAt: new Date(),
+      user: user.uid,
+      username: user.displayName,
+    });
+    setPost({ title: '', description: '' });
+    return navigate('/home');
   };
 
   return (
@@ -59,7 +67,13 @@ export default function PostForm() {
           ></textarea>
           {/* update letter count when user is typing */}
           <div className='d-flex justify-content-end'>
-            <p className='text-muted'>{post.description.length}/800</p>
+            <p
+              className={`${
+                post.description.length > 600 ? 'text-danger' : 'text-muted'
+              }`}
+            >
+              {post.description.length}/600
+            </p>
           </div>
         </div>
         <button

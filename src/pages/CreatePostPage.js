@@ -26,7 +26,7 @@ export default function CreatePostPage() {
         <div className='row form-style'>
           <div className='col'>
             <div className='login-form'>
-              <h1 className='text-center mt-5'>Create a new post</h1>
+              <h1 className='text-center mt-3'>Create a new post</h1>
               <PostForm />
             </div>
           </div>
