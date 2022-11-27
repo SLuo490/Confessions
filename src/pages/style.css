@@ -45,8 +45,7 @@ body {
 
 /* Login + Sign In */
 .background-style {
-  height: 95vh;
-  position: fixed;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +55,7 @@ body {
 .form-style {
   background-color: white;
   width: 900px;
-  height: 650px;
+  height: 600px;
   border-radius: 10px;
   margin: 0 auto;
 }
@@ -78,3 +77,5 @@ textarea {
   text-decoration-thickness: 3px;
   text-decoration-color: var(--imperial-red);
 }
+
+/* Media Queries */

@@ -7,7 +7,7 @@ export default function LoginPage() {
   return (
     <div className='LoginPage'>
       <Nav />
-      <div className='container-fluid background-style'>
+      <div className='container-md background-style'>
         <div className='row form-style'>
           <div className='col'>
             <div className='login-form'>
