@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function PostForm() {
   const [post, setPost] = useState({ title: '', description: '' });
   const [error, setError] = useState('');
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   // if user clicks cancel button, redirect to home page
@@ -16,10 +17,29 @@ export default function PostForm() {
     navigate('/home');
   };
 
+  // if user clicks submit button, add post to firestore
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(db, 'posts'), {
+        ...post,
+        createdAt: new Date(),
+        user: user.uid,
+        username: user.displayName,
+      });
+      console.log('Document written with ID: ', docRef.id);
+      setPost({ title: '', description: '' });
+      navigate('/home');
+    } catch (err) {
+      setError(err.message);
+      console.error('Error adding document: ', err);
+    }
+  };
+
   return (
     <div className='PostForm'>
       {error && <ErrorAlert details={error} />}
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className='form-group mx-4 mt-4'>
           <input
             type='text'
