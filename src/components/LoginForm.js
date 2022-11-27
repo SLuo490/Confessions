@@ -40,12 +40,6 @@ export default function Form() {
     });
   };
 
-  const handleCancel = () => {
-    setEmail('');
-    setPassword('');
-    navigate('/');
-  };
-
   useEffect(() => {
     if (loading) return;
     if (user) navigate('/home');
@@ -84,7 +78,7 @@ export default function Form() {
         <span className='h5'>Login</span>
       </button>
       <p className='text-center mt-4'>
-        <Link to='/register' className='decoration-thickness text-black'>
+        <Link to='/' className='decoration-thickness text-black'>
           <span className='h5'>Cancel</span>
         </Link>
       </p>
