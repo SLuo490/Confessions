@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   CreatePostPage,
-  EditPostPage,
   HomePage,
   LoginPage,
   RegisterPage,
@@ -21,7 +20,6 @@ function App() {
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/create' element={<CreatePostPage />} />
-          <Route exact path='/edit/:id' element={<EditPostPage />} />
         </Routes>
       </div>
     </Router>

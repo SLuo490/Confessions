@@ -1,13 +1,40 @@
 import './style.css';
-import Nav from '../components/Nav';
+import { Nav, Confession } from '../components';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { db } from '../utils/firebase';
+import {
+  collection,
+  orderBy,
+  getDocs,
+  onSnapshot,
+  query,
+} from 'firebase/firestore';
 
 export default function HomePage() {
-  const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
+  const [allPost, setAllPost] = useState([]);
+  const navigate = useNavigate();
+
+  const getPost = async () => {
+    const collectionRef = collection(db, 'posts');
+    const q = query(collectionRef, orderBy('createdAt', 'desc'));
+
+    // use onSnapshot to listen to changes in the database on real time
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+      });
+      setAllPost(data);
+    });
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
 
   useEffect(() => {
     // if user not logged in, redirect to login page
@@ -22,7 +49,13 @@ export default function HomePage() {
   return (
     <div className='HomePage'>
       <Nav />
-      <div className='container w-50 bg-white'>Hello</div>
+      <div className='container w-50'>
+        <div className='d-flex flex-column'>
+          {allPost.map((post) => (
+            <Confession key={post.id} post={post} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
