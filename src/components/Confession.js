@@ -2,11 +2,11 @@ export default function Confession({ children, ...props }) {
   return (
     <div className='bg-white mt-5 p-3 rounded'>
       <div>
-        <h5>Username</h5>
-        <p>Title</p>
+        <h5>{props.post.username}</h5>
+        <p>{props.post.title}</p>
       </div>
       <div>
-        <p>Content</p>
+        <p>{props.post.description}</p>
       </div>
       {children}
     </div>

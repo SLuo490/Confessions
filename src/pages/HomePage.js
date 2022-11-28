@@ -51,8 +51,9 @@ export default function HomePage() {
       <Nav />
       <div className='container w-50'>
         <div className='d-flex flex-column'>
-          <Confession />
-          <Confession />
+          {allPost.map((post) => (
+            <Confession key={post.id} post={post} />
+          ))}
         </div>
       </div>
     </div>
