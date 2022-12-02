@@ -5,6 +5,7 @@ import {
   LoginPage,
   RegisterPage,
   LandingPage,
+  Dashboard,
 } from './pages/index';
 
 import './App.css';
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/login' element={<LoginPage />} />
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/create' element={<CreatePostPage />} />
+          <Route exact path='/dashboard' element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
