@@ -58,10 +58,18 @@ export default function Nav() {
                 </div>
               ) : (
                 <div>
-                  <Link to='/create'>
+                  <Link to='/dashboard'>
                     <button
                       type='button'
                       className='btn btn-outline-primary me-3'
+                    >
+                      Dashboard
+                    </button>
+                  </Link>
+                  <Link to='/create'>
+                    <button
+                      type='button'
+                      className='btn btn-outline-success me-3'
                     >
                       Create
                     </button>
