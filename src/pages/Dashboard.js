@@ -1,4 +1,4 @@
-import { Nav } from '../components';
+import { Confession, Nav } from '../components';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -38,7 +38,13 @@ export default function Dashboard() {
     <div>
       <Nav />
       <h1>Your Confessions</h1>
-      <div>{}</div>
+      <div className='container w-50'>
+        <div className='d-flex flex-column'>
+          {posts.map((post) => (
+            <Confession key={post.id} post={post} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
