@@ -3,7 +3,14 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { auth, db } from '../utils/firebase';
-import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  where,
+} from 'firebase/firestore';
 import { BsTrash2Fill } from 'react-icons/bs';
 import { AiFillEdit } from 'react-icons/ai';
 export default function Dashboard() {
@@ -36,6 +43,12 @@ export default function Dashboard() {
     getData();
   }, [user, loading, navigate]);
 
+  // Delete Post
+  const deletePost = async (id) => {
+    const postRef = doc(db, 'posts', id);
+    await deleteDoc(postRef);
+  };
+
   return (
     <div>
       <Nav />
@@ -48,7 +61,11 @@ export default function Dashboard() {
                 <button type='button' className='btn ps-2 btn-success me-3'>
                   <AiFillEdit /> Edit
                 </button>
-                <button type='button' className='btn ps-2 btn-danger'>
+                <button
+                  type='button'
+                  className='btn ps-2 btn-danger'
+                  onClick={() => deletePost(post.id)}
+                >
                   <BsTrash2Fill /> Delete
                 </button>
               </div>
