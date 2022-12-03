@@ -1,6 +1,6 @@
 import { auth, db } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { ErrorAlert } from './index';
 import { useNavigate } from 'react-router-dom';

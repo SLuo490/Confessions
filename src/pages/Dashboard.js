@@ -1,6 +1,6 @@
 import { Confession, Nav } from '../components';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { auth, db } from '../utils/firebase';
 import {
@@ -58,9 +58,11 @@ export default function Dashboard() {
           {posts.map((post) => (
             <Confession key={post.id} post={post}>
               <div className='d-flex'>
-                <button type='button' className='btn ps-2 btn-success me-3'>
-                  <AiFillEdit /> Edit
-                </button>
+                <Link to={{ pathname: `/edit/${post.id}` }}>
+                  <button type='button' className='btn ps-2 btn-success me-3'>
+                    <AiFillEdit /> Edit
+                  </button>
+                </Link>
                 <button
                   type='button'
                   className='btn ps-2 btn-danger'

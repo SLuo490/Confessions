@@ -6,6 +6,7 @@ import {
   RegisterPage,
   LandingPage,
   Dashboard,
+  EditPostPage,
 } from './pages/index';
 
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
           <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path='/create' element={<CreatePostPage />} />
           <Route exact path='/dashboard' element={<Dashboard />} />
+          <Route exact path='/edit/:id' element={<EditPostPage />} />
         </Routes>
       </div>
     </Router>
