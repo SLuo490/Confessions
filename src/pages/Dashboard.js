@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { auth, db } from '../utils/firebase';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
+import { BsTrash2Fill } from 'react-icons/bs';
+import { AiFillEdit } from 'react-icons/ai';
 export default function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [posts, setPosts] = useState([]);
@@ -41,7 +43,16 @@ export default function Dashboard() {
       <div className='container w-50'>
         <div className='d-flex flex-column'>
           {posts.map((post) => (
-            <Confession key={post.id} post={post} />
+            <Confession key={post.id} post={post}>
+              <div className='d-flex'>
+                <button type='button' className='btn ps-2 btn-success me-3'>
+                  <AiFillEdit /> Edit
+                </button>
+                <button type='button' className='btn ps-2 btn-danger'>
+                  <BsTrash2Fill /> Delete
+                </button>
+              </div>
+            </Confession>
           ))}
         </div>
       </div>
