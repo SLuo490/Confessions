@@ -37,7 +37,7 @@ export default function Dashboard() {
   return (
     <div>
       <Nav />
-      <h1>Your Confessions</h1>
+      <h2 className='text-center pt-4'>Your Confessions</h2>
       <div className='container w-50'>
         <div className='d-flex flex-column'>
           {posts.map((post) => (

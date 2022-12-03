@@ -44,6 +44,8 @@ export default function HomePage() {
     <div className='HomePage'>
       <Nav />
       <div className='container w-50'>
+        <h2 className='text-center pt-4'>Confessions</h2>
+        <p className='text-center pt-2'>See what people are saying!</p>
         <div className='d-flex flex-column'>
           {allPost.map((post) => (
             <Confession key={post.id} post={post} />
