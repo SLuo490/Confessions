@@ -1,17 +1,10 @@
 import './style.css';
 import { Nav, Confession } from '../components';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../utils/firebase';
+import { auth, db } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useState, useEffect } from 'react';
-import { db } from '../utils/firebase';
-import {
-  collection,
-  orderBy,
-  getDocs,
-  onSnapshot,
-  query,
-} from 'firebase/firestore';
+import { collection, orderBy, onSnapshot, query } from 'firebase/firestore';
 
 export default function HomePage() {
   const [user, loading] = useAuthState(auth);
@@ -30,6 +23,7 @@ export default function HomePage() {
       });
       setAllPost(data);
     });
+    return unsubscribe;
   };
 
   useEffect(() => {
