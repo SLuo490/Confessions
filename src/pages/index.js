@@ -5,6 +5,7 @@ import RegisterPage from './auth/RegisterPage';
 import LandingPage from './LandingPage';
 import Dashboard from './Dashboard';
 import EditPostPage from './EditPostPage';
+import DetailsPage from './DetailsPage';
 
 export {
   HomePage,
@@ -14,4 +15,5 @@ export {
   LandingPage,
   Dashboard,
   EditPostPage,
+  DetailsPage,
 };

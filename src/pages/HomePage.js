@@ -1,6 +1,6 @@
 import './style.css';
 import { Nav, Confession } from '../components';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useState, useEffect } from 'react';
@@ -48,7 +48,11 @@ export default function HomePage() {
         <p className='text-center pt-2'>See what people are saying!</p>
         <div className='d-flex flex-column'>
           {allPost.map((post) => (
-            <Confession key={post.id} post={post} />
+            <Confession key={post.id} post={post}>
+              <Link to={{ pathname: `/comments/${post.id}` }}>
+                <button className='btn btn-secondary'>Comments</button>
+              </Link>
+            </Confession>
           ))}
         </div>
       </div>

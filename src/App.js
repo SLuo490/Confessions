@@ -7,6 +7,7 @@ import {
   LandingPage,
   Dashboard,
   EditPostPage,
+  DetailsPage,
 } from './pages/index';
 
 import './App.css';
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/create' element={<CreatePostPage />} />
           <Route exact path='/dashboard' element={<Dashboard />} />
           <Route exact path='/edit/:id' element={<EditPostPage />} />
+          <Route exact path='/comments/:slug' element={<DetailsPage />} />
         </Routes>
       </div>
     </Router>
