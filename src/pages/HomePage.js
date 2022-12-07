@@ -49,7 +49,7 @@ export default function HomePage() {
         <div className='d-flex flex-column'>
           {allPost.map((post) => (
             <Confession key={post.id} post={post}>
-              <Link to={{ pathname: `/comments/${post.id}` }}>
+              <Link to={{ pathname: `/${post.id}` }}>
                 <button className='btn btn-secondary'>Comments</button>
               </Link>
             </Confession>

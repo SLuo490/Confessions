@@ -1,6 +1,24 @@
 import { Nav } from '../components';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../utils/firebase';
 
 export default function LandingPage() {
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // if user not logged in, redirect to login page
+    const getData = async () => {
+      if (loading) return;
+      if (!user) return navigate('/login');
+      // if (user) return navigate('/home');
+    };
+
+    getData();
+  }, [user, loading, navigate]);
+
   return (
     <div className='landingPage'>
       <Nav />
