@@ -4,6 +4,7 @@ import { arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth, db } from '../utils/firebase';
+import uuid from 'react-uuid';
 
 export default function DetailsPage() {
   const [post, setPost] = useState({ title: '', description: '' });
@@ -11,6 +12,7 @@ export default function DetailsPage() {
   const [allComment, setAllComment] = useState([]);
   const [error, setError] = useState('');
   const [user, loading] = useAuthState(auth);
+  const [refreshData, setRefreshData] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,7 +20,7 @@ export default function DetailsPage() {
   const location = useLocation();
   const id = location.pathname.split('/')[1];
 
-  // submit comment
+  // submit comment to firestore
   const handleSubmit = async () => {
     const docRef = doc(db, 'posts', id);
     await updateDoc(docRef, {
@@ -32,6 +34,18 @@ export default function DetailsPage() {
     setComment('');
   };
 
+  useEffect(() => {
+    // get comment from firestore
+    const getComments = async () => {
+      const docRef = await getDoc(doc(db, 'posts', id));
+      const docData = docRef.data();
+      setAllComment(docData.comments);
+      setRefreshData(!refreshData);
+    };
+
+    getComments();
+  }, [refreshData, id]);
+
   // pull post data from firestore
   useEffect(() => {
     const getData = async () => {
@@ -42,6 +56,7 @@ export default function DetailsPage() {
       const docData = docRef.data();
       setPost(docData);
     };
+
     getData();
   }, [user, loading, navigate, id]);
 
@@ -67,8 +82,11 @@ export default function DetailsPage() {
           <div className='py-3'>
             <h6>Comments</h6>
             {allComment.map((comment) => (
-              <div>
-                <div></div>
+              <div className='' key={uuid()}>
+                <div>
+                  <div>{comment.username}</div>
+                </div>
+                <p>{comment.comment}</p>
               </div>
             ))}
           </div>
