@@ -79,13 +79,13 @@ export default function DetailsPage() {
               Submit
             </button>
           </div>
-          <div className='py-3'>
-            <h6>Comments</h6>
+          <div className='bg-white py-3'>
             {allComment.map((comment) => (
-              <div className='' key={uuid()}>
+              <div className='px-2' key={uuid()}>
                 <div>
                   <div>{comment.username}</div>
                 </div>
+
                 <p>{comment.comment}</p>
               </div>
             ))}

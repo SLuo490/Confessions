@@ -8,17 +8,6 @@ export default function LandingPage() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // if user not logged in, redirect to login page
-    const getData = async () => {
-      if (loading) return;
-      if (!user) return navigate('/login');
-      // if (user) return navigate('/home');
-    };
-
-    getData();
-  }, [user, loading, navigate]);
-
   return (
     <div className='landingPage'>
       <Nav />
@@ -39,27 +28,10 @@ export default function LandingPage() {
                   akls djlaksj ljdasj kdklwkakj lkjaskj kjdalsk dalks jdlkajskl
                   djkakl jsakdl jalkdjlk
                 </div>
-                <div className='mt-5 p-2 bg-secondary '>
-                  <div className='row'>
-                    <div className='col-md-6 text-center text-white'>Like</div>
-                    <div className='col-md-6 text-center text-white'>
-                      Comment
-                    </div>
-                  </div>
-                </div>
-                <div className='row p-2'>
-                  <div className='col-md-2 text-center'>Username</div>
-                  <div className='col-md-10'>
-                    This is just a bunch of comment where we can hold some
-                    testing site or else we wont know if it works
-                  </div>
-                </div>
-                <div className='row p-2'>
-                  <div className='col-md-2 text-center'>Username</div>
-                  <div className='col-md-10'>
-                    This is just a bunch of comment where we can hold some
-                    testing site or else we wont know if it works
-                  </div>
+                <div className='my-3 p-2'>
+                  <button className='btn btn-secondary' disabled>
+                    6 Comments
+                  </button>{' '}
                 </div>
               </div>
             </div>
@@ -74,27 +46,28 @@ export default function LandingPage() {
                   akls djlaksj ljdasj kdklwkakj lkjaskj kjdalsk dalks jdlkajskl
                   djkakl jsakdl jalkdjlk
                 </div>
-                <div className='mt-5 p-2 bg-secondary '>
-                  <div className='row'>
-                    <div className='col-md-6 text-center text-white'>Like</div>
-                    <div className='col-md-6 text-center text-white'>
-                      Comment
-                    </div>
-                  </div>
+                <div className='my-3 p-2'>
+                  <button className='btn btn-secondary' disabled>
+                    10 Comments
+                  </button>{' '}
                 </div>
-                <div className='row p-2'>
-                  <div className='col-md-2 text-center'>Username</div>
-                  <div className='col-md-10'>
-                    This is just a bunch of comment where we can hold some
-                    testing site or else we wont know if it works are not
-                  </div>
+              </div>
+            </div>
+            <div className='row h-40'>
+              <div className='col m-4 bg-white'>
+                <div className='mt-3'>Holder Username</div>
+                <div className='mt-3 '>Title Here</div>
+                <div className='mt-4'>
+                  asdhlajsflkas ajsl asld klajsdjl ajskd jasj l daks djlasd jaks
+                  ljjzxkcljkl kjqwejljqj lksjd lkj ajdjl kajsd kljaljsld jakjs
+                  kdjal fka lkd jasklj jaskld jlajs j jlas jdkaj skdj jlaks d
+                  akls djlaksj ljdasj kdklwkakj lkjaskj kjdalsk dalks jdlkajskl
+                  djkakl jsakdl jalkdjlk
                 </div>
-                <div className='row p-2'>
-                  <div className='col-md-2 text-center'>Username</div>
-                  <div className='col-md-10'>
-                    This is just a bunch of comment where we can hold some
-                    testing site or else we wont know if it works
-                  </div>
+                <div className='my-3 p-2'>
+                  <button className='btn btn-secondary' disabled>
+                    2 Comments
+                  </button>{' '}
                 </div>
               </div>
             </div>
