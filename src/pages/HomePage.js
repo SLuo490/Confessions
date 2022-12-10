@@ -15,7 +15,6 @@ import {
 export default function HomePage() {
   const [user, loading] = useAuthState(auth);
   const [allPost, setAllPost] = useState([]);
-  const [commentCount, setCommentCount] = useState(0);
   const navigate = useNavigate();
 
   const getPost = async () => {
@@ -58,7 +57,7 @@ export default function HomePage() {
             <Confession key={post.id} post={post}>
               <Link to={{ pathname: `/${post.id}` }}>
                 <button className='btn btn-secondary'>
-                  {`${commentCount} Comments`}
+                  {post.comments.length} Comments
                 </button>
               </Link>
             </Confession>
