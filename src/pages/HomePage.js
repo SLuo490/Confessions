@@ -1,17 +1,10 @@
 import './style.css';
 import { Nav, Confession } from '../components';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../utils/firebase';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth, db } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useState, useEffect } from 'react';
-import { db } from '../utils/firebase';
-import {
-  collection,
-  orderBy,
-  getDocs,
-  onSnapshot,
-  query,
-} from 'firebase/firestore';
+import { collection, orderBy, onSnapshot, query } from 'firebase/firestore';
 
 export default function HomePage() {
   const [user, loading] = useAuthState(auth);
@@ -30,6 +23,7 @@ export default function HomePage() {
       });
       setAllPost(data);
     });
+    return unsubscribe;
   };
 
   useEffect(() => {
@@ -50,9 +44,15 @@ export default function HomePage() {
     <div className='HomePage'>
       <Nav />
       <div className='container w-50'>
+        <h2 className='text-center pt-4'>Confessions</h2>
+        <p className='text-center pt-2'>See what people are saying!</p>
         <div className='d-flex flex-column'>
           {allPost.map((post) => (
-            <Confession key={post.id} post={post} />
+            <Confession key={post.id} post={post}>
+              <Link to={{ pathname: `/${post.id}` }}>
+                <button className='btn btn-secondary'>Comments</button>
+              </Link>
+            </Confession>
           ))}
         </div>
       </div>
