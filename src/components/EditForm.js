@@ -100,7 +100,7 @@ export default function EditForm() {
           className='btn btn-primary mx-4 w-25 py-2'
           onClick={handleSubmit}
         >
-          Post
+          Edit
         </button>
         <button
           type='submit'

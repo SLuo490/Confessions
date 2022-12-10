@@ -79,16 +79,22 @@ export default function DetailsPage() {
               Submit
             </button>
           </div>
-          <div className='bg-white py-3'>
-            {allComment.map((comment) => (
-              <div className='px-2' key={uuid()}>
-                <div>
-                  <div>{comment.username}</div>
+          <div className='bg-white pt-3'>
+            {Array.isArray(allComment) && allComment.length > 0 ? (
+              allComment.map((comment) => (
+                <div className='ms-2' key={uuid()}>
+                  <div>
+                    <div className='pb-1'>
+                      <div>{comment.username}</div>
+                    </div>
+                    <p className='pb-3'>{comment.comment}</p>
+                  </div>
+                  <div className='border-bottom'></div>
                 </div>
-
-                <p>{comment.comment}</p>
-              </div>
-            ))}
+              ))
+            ) : (
+              <div className='text-center'>No comments yet</div>
+            )}
           </div>
         </div>
       </div>
