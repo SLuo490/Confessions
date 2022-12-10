@@ -13,6 +13,7 @@ export default function DetailsPage() {
   const [error, setError] = useState('');
   const [user, loading] = useAuthState(auth);
   const [refreshData, setRefreshData] = useState(false);
+  const [commentCount, setCommentCount] = useState(0);
 
   const navigate = useNavigate();
 
@@ -79,17 +80,18 @@ export default function DetailsPage() {
               Submit
             </button>
           </div>
-          <div className='bg-white pt-3'>
+          <div className='mt-3'>
+            <h5 className='ps-1'>Comments: </h5>
             {Array.isArray(allComment) && allComment.length > 0 ? (
               allComment.map((comment) => (
-                <div className='ms-2' key={uuid()}>
-                  <div>
-                    <div className='pb-1'>
-                      <div>{comment.username}</div>
-                    </div>
-                    <p className='pb-3'>{comment.comment}</p>
+                <div
+                  className='bg-white px-2 mt-3 border border-2'
+                  key={uuid()}
+                >
+                  <div className='py-2'>
+                    <div>{comment.username}</div>
                   </div>
-                  <div className='border-bottom'></div>
+                  <p className='pb-2'>{comment.comment}</p>
                 </div>
               ))
             ) : (

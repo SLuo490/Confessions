@@ -1,14 +1,21 @@
 import './style.css';
 import { Nav, Confession } from '../components';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, db } from '../utils/firebase';
+import { auth, db, getDoc, doc } from '../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useState, useEffect } from 'react';
-import { collection, orderBy, onSnapshot, query } from 'firebase/firestore';
+import {
+  collection,
+  orderBy,
+  onSnapshot,
+  query,
+  Firestore,
+} from 'firebase/firestore';
 
 export default function HomePage() {
   const [user, loading] = useAuthState(auth);
   const [allPost, setAllPost] = useState([]);
+  const [commentCount, setCommentCount] = useState(0);
   const navigate = useNavigate();
 
   const getPost = async () => {
@@ -50,7 +57,9 @@ export default function HomePage() {
           {allPost.map((post) => (
             <Confession key={post.id} post={post}>
               <Link to={{ pathname: `/${post.id}` }}>
-                <button className='btn btn-secondary'>Comments</button>
+                <button className='btn btn-secondary'>
+                  {`${commentCount} Comments`}
+                </button>
               </Link>
             </Confession>
           ))}

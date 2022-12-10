@@ -6,12 +6,6 @@ export default function LandingPage() {
       <Nav />
       <div className='container-fluid position-fixed'>
         <div className='row'>
-          {/* <div className='col display-3 d-flex justify-content-center flex-column'>
-            <div className='ms-5'>
-              Have a secret that you want to share anonymously?
-            </div>
-            <div className='ms-5 mt-5'>Share It</div>
-          </div> */}
           <div className='col display-3 d-flex text-center align-items-center justify-content-center vh-100'>
             Have a secret that you want to share anonymously?
           </div>
